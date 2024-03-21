@@ -45,6 +45,18 @@
 #
 # - app.http-proxy.host=
 # - app.http-proxy.port=
+# FROM : 指定基础镜像， 必须为第一条命令
+# maintainer： 维护者信息
+# RUN : 在镜像容器中执行命令，有两种执行方式 shell执行和exec执行
+# VOLUME：创建一个匿名数据卷挂载点，运行容器时可以从本地主机或其他容器挂在数据卷，一般用来存放数据库和需要保持的数据。
+# ADD： 将本地文件添加到容器中，支持tar类型文件自动解压，可以访问网络资源
+# EXPOSE： 指定容器对外暴露的端口
+# WORKDIR：指定在创建容器后，终端默认登录进来的工作目录
+# ENTRYPOINT: 指定容器启动时要运行的命令  ENTRYPOINT [“executable”, “param1”, “param2”] (exec 格式，首选)
+# COPY：类似ADD，拷贝文件和目录到镜像中
+# Dockerfile的指令按照从上至下顺序执行，每条指令都会创建一个新的镜像层并对镜像进行提交
+# ENV  环境变量
+
 ####
 FROM eclipse-temurin:17-jre-alpine
 LABEL maintainer="suimz/chatgpt-web-java<https://github.com/suimz/chatgpt-web-java>"
